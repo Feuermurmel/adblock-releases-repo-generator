@@ -1,6 +1,6 @@
 # AdBlock source releases as a Git repository
 
-This script helps you create a Git Repository from the [source releases](http://code.getadblock.com/releases/) of [AdBlock](https://getadblock.com).
+This script helps you create a Git Repository from the [source releases](http://code.getadblock.com/releases/) of [AdBlock](https://getadblock.com). This script has been used to create the repository at https://github.com/Feuermurmel/adblock-releases.
 
 
 ## Preparations
@@ -22,3 +22,12 @@ The script `create.sh` can then be run for each branch that should be created:
 The first argument is the name used in the commit messages to refer to the project. The second argument is the "identifier" of the project. It is used as the name of the branch as a prefix for the names of the tags that are create. It is also used to look for the file listing the ZIP archives by appending `.zip` to the identifier.
 
 When the script has finished, you should have a Git repository under `repo/` with a single new branch and a new tagged commit for each release.
+
+
+## Final touches
+
+Some additional commands, run from `repo/` bring the repository into the shape seen in my version of the repository I linked to at the top.
+
+	git checkout master
+	git reset --hard adblock
+	git branch -d adblock
